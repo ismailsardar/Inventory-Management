@@ -3,3 +3,8 @@
  * Subject: Inventory Project All package require
  * Auth: Ismile Satdar
  */
+
+const express = require("express");
+const router = express.Router();
+
+module.exports = router;
