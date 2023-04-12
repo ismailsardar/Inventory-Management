@@ -4,11 +4,12 @@
  * Auth: Ismile Satdar
  */
 
-const UserCreateService = async (request, dataModel) => {
+const UserDetailsService = async (request, dataModel) => {
   try {
-    let postBody = request.body;
-    let data = await dataModel.create(postBody);
-    
+    let data = await dataModel.aggregate([
+      { $match: { email: request.headers["email"] } },
+    ]);
+
     if (data) {
       return { status: "success", data: data };
     }
@@ -17,4 +18,4 @@ const UserCreateService = async (request, dataModel) => {
   }
 };
 
-module.exports = UserCreateService;
+module.exports = UserDetailsService;
