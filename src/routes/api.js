@@ -7,4 +7,9 @@
 const express = require("express");
 const router = express.Router();
 
+// testing router
+router.get("/", (req, res) => {
+  res.send("This is tasting Router");
+});
+
 module.exports = router;

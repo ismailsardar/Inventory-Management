@@ -8,7 +8,7 @@
 const express = require("express");
 const app = new express();
 const bodyParser = require("body-parser");
-const { route } = require("./src/routes/api");
+const router = require("./src/routes/api");
 
 // Security Middleware Lib Import
 const rateLimit = require("express-rate-limit");
@@ -17,6 +17,7 @@ const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
 const hpp = require("hpp");
 const cors = require("cors");
+const morgan = require("morgan");
 require("dotenv").config();
 
 // Database Lib Import
@@ -28,6 +29,7 @@ app.use(helmet());
 app.use(mongoSanitize());
 app.use(xss());
 app.use(hpp());
+app.use(morgan("dev"));
 
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb" }));
@@ -50,7 +52,7 @@ mongoose
   });
 
 // Routing Implement
-app.use("/api/v1", route);
+app.use("/api/v1", router);
 
 // Undefined Route Implement
 app.use("*", (req, res) => {
