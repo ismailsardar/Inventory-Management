@@ -15,5 +15,5 @@ let otpSchema = new mongoose.Schema(
   { versionKey: false }
 );
 
-let otpModel = mongoose.model("otps", otpSchema);
-module.exports = otpModel;
+let OtpModel = mongoose.model("otps", otpSchema);
+module.exports = OtpModel;
