@@ -1,14 +1,14 @@
 /**
  * Date: 12/04/2023
- * Subject: Inventory Project All package require
- * Auth: Ismile Satdar
- */
+ * Subject: Inventory Project services
+ * Auth: Ismile Sardar
+*/
 
 const UserCreateService = async (request, dataModel) => {
   try {
     let postBody = request.body;
     let data = await dataModel.create(postBody);
-    
+
     if (data) {
       return { status: "success", data: data };
     }
