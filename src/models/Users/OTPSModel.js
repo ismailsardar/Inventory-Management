@@ -2,7 +2,7 @@
  * Date: 12/04/2023
  * Subject: Inventory Project otp model
  * Auth: Ismile Satdar
-*/
+ */
 
 let mongoose = require("mongoose");
 let otpSchema = new mongoose.Schema(
