@@ -2,7 +2,7 @@
  * Date: 12/04/2023
  * Subject: Inventory Project user model
  * Auth: Ismile Satdar
-*/
+ */
 
 let mongoose = require("mongoose");
 let userSchema = new mongoose.Schema(
