@@ -24,6 +24,13 @@ exports.Registration = async (req, res) => {
   res.status(201).json(result);
 };
 
+// Users Recover ResetPass
+exports.Login = async (req, res) => {
+  let result = await UserLoginService(req, UserModel);
+  // user Response
+  res.status(200).json(result);
+};
+
 // Users Profile Update
 exports.ProfileUpdate = async (req, res) => {
   let result = await UserUpdateService(req, UserModel);
@@ -52,9 +59,9 @@ exports.RecoverVerifyOTP = async (req, res) => {
   res.status(200).json(result);
 };
 
-// Users Recover Reset Pass
-exports.RecoverResetPass = async (req, res) => {
+// Users User Reset Password
+exports.resetPassword = async (req, res) => {
   let result = await UserResetPassService(req, UserModel);
   // user Response
-  res.status(200).json(result);
+  res.status(201).json(result);
 };
