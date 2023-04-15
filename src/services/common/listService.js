@@ -6,10 +6,10 @@
 
 const ListService = async (req, dataModel, SearchArray) => {
   try {
-    let pageNo = Number(Request.params.pageNo);
-    let perPage = Number(Request.params.perPage);
-    let searchValue = Request.params.searchKeyword;
-    let UserEmail = Request.headers["email"];
+    let pageNo = Number(req.params.pageNo);
+    let perPage = Number(req.params.perPage);
+    let searchValue = req.params.searchKeyword;
+    let UserEmail = req.headers["email"];
 
     let skipRow = (pageNo - 1) * perPage;
 
