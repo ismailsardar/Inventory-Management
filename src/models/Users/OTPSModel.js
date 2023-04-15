@@ -7,7 +7,7 @@
 let mongoose = require("mongoose");
 let otpSchema = new mongoose.Schema(
   {
-    email: { type: String },
+    UserEmail: { type: String },
     otp: { type: String },
     status: { type: Number, default: 0 },
     createdDate: { type: Date, default: Date.now() },
