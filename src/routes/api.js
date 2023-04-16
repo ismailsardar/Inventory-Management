@@ -68,8 +68,9 @@ router.post("/updateExpenseType/:id",AuthVerifyMiddleware,ExpenseType.UpdateExpe
 router.get("/expenseTypeList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,ExpenseType.ExpenseTypesList);
 router.get("/expenseTypeDropDown",AuthVerifyMiddleware,ExpenseType.ExpenseTypesDropDown);
 
-// Expense Types Routing
+// Expense Routing
 router.post("/createExpense",AuthVerifyMiddleware,Expenses.CreateExpense);
 router.post("/updateExpense/:id",AuthVerifyMiddleware,Expenses.UpdateExpense);
+router.get("/expenseList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,Expenses.ExpenseList);
 
 module.exports = router;
