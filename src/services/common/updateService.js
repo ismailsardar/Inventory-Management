@@ -11,6 +11,7 @@ const UpdateService = async (req, dataModel) => {
     let postBody = req.body;
 
     let data = await dataModel.updateOne({ _id: id, UserEmail }, postBody);
+    // console.log(data)
     return { status: "success", data: data };
   } catch (error) {
     return { status: "fail", error: error.message };

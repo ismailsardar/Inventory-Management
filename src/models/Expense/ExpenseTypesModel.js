@@ -15,6 +15,6 @@ const expenseTypeSchema = new mongoose.Schema(
   { versionKey: false }
 );
 
-const ExpenseModel = mongoose.model("expensetypes", expenseTypeSchema);
+const ExpenseTypeModel = mongoose.model("expensetypes", expenseTypeSchema);
 
-module.exports = ExpenseModel;
+module.exports = ExpenseTypeModel;
