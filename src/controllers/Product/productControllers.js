@@ -9,7 +9,7 @@ const ProductModel = require("../../models/Products/ProductModule");
 
 // common services import
 const CreateService = require("../../services/common/createService");
-const ListOneJoinService = require("../../services/common/listOneJoinService");
+const ListTwoJoinService = require("../../services/common/listTwoJoinService");
 const UpdateService = require("../../services/common/updateService");
 
 // CreateExpense
@@ -28,11 +28,17 @@ exports.UpdateProduct = async (req, res) => {
 exports.ProductList = async (req, res) => {
   let SearchRgx = { $regex: req.params.searchKeyword, $options: "i" };
   let SearchArray = [
-    { Amount: SearchRgx },
-    { Note: SearchRgx },
-    { "Type.Name": SearchRgx },
-  ];
-  let JoinStage = {$lookup: {from: "expensetypes", localField: "TypeID", foreignField: "_id", as: "Type"}}
-  let result = await ListOneJoinService(req, ExpenseModel, SearchArray,JoinStage);
+    {Name: SearchRgx},
+    {Unit: SearchRgx},
+    {Details: SearchRgx},
+    {'brands.Name':SearchRgx},
+    {'categories.Name':SearchRgx}
+];
+  let JoinStage1 = {$lookup: {from: "brands", localField: "BrandID", foreignField: "_id", as: "brands"}}
+
+  let JoinStage2 = {$lookup: {from: "categories", localField: "CategoryID", foreignField: "_id", as: "categories"}}
+
+  let result = await ListTwoJoinService(req, ProductModel, SearchArray,JoinStage1,JoinStage2);
+  
   res.status(200).json(result);
 };
