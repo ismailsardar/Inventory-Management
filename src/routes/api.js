@@ -25,6 +25,8 @@ const ExpenseType = require('../controllers/Expense/expenseTypeControllers');
 const Expenses = require('../controllers/Expense/expenseControllers');
 // Product Controller modules
 const ProductController = require('../controllers/Product/productControllers');
+// Purchases Controller modules
+const PurchasesController = require('../controllers/Purchase/purchaseControllers');
 
 // testing router
 router.get("/", (req, res) => {
@@ -79,5 +81,8 @@ router.get("/expenseList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,E
 router.post("/createProduct",AuthVerifyMiddleware,ProductController.CreateProduct);
 router.post("/updateProduct/:id",AuthVerifyMiddleware,ProductController.UpdateProduct);
 router.get("/productList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,ProductController.ProductList);
+
+// Purchases Routing
+router.post("/createPurchases",AuthVerifyMiddleware,PurchasesController.CreatePurchases);
 
 module.exports = router;
