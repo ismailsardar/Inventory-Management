@@ -84,5 +84,6 @@ router.get("/productList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,P
 
 // Purchases Routing
 router.post("/createPurchases",AuthVerifyMiddleware,PurchasesController.CreatePurchases);
+router.get("/purchasesList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,PurchasesController.PurchasesList);
 
 module.exports = router;
