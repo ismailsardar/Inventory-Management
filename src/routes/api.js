@@ -27,6 +27,10 @@ const Expenses = require('../controllers/Expense/expenseControllers');
 const ProductController = require('../controllers/Product/productControllers');
 // Purchases Controller modules
 const PurchasesController = require('../controllers/Purchase/purchaseControllers');
+// Return Controller modules
+const ReturnController = require('../controllers/Returns/returnsController');
+// sales Controller modules
+const SalesController = require('../controllers/Sales/salesControllers');
 
 // testing router
 router.get("/", (req, res) => {
@@ -85,5 +89,13 @@ router.get("/productList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,P
 // Purchases Routing
 router.post("/createPurchases",AuthVerifyMiddleware,PurchasesController.CreatePurchases);
 router.get("/purchasesList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,PurchasesController.PurchasesList);
+
+// Sales
+router.post("/createSales",AuthVerifyMiddleware,SalesController.CreateSales);
+router.get("/salesList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,SalesController.SalesList);
+
+// Return Routing
+router.post("/createReturn",AuthVerifyMiddleware,ReturnController.CreateReturn);
+router.get("/returnList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,ReturnController.ReturnList);
 
 module.exports = router;
