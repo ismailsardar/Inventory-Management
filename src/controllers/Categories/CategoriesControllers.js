@@ -5,27 +5,31 @@
  */
 
 //data base import
+const { mongoose } = require("mongoose");
 const CategoriesModel = require("../../models/Categories/CategoriesModel");
+const ProductModel = require("../../models/Products/ProductModule");
 
 // common services import
 const CreateService = require("../../services/common/createService");
 const DropDownService = require("../../services/common/dropDownService");
 const ListService = require("../../services/common/listService");
 const UpdateService = require("../../services/common/updateService");
+const DeleteService = require("../../services/common/deleteService");
+const CheckAssociateService = require("../../services/common/checkAssociateService");
 
-// CreateBrand
+// Create Categories
 exports.CreateCategories = async (req, res) => {
   let result = await CreateService(req, CategoriesModel);
   res.status(201).json(result);
 };
 
-// UpdateBrand
+// Update Categories
 exports.UpdateCategories = async (req, res) => {
   let result = await UpdateService(req, CategoriesModel);
   res.status(200).json(result);
 };
 
-// BrandList
+// Categories List
 exports.CategoriesList = async (req, res) => {
   let SearchRex = { $regex: req.params.searchKeyword, $options: "i" };
   let SearchArray = [{ Name: SearchRex }];
@@ -33,8 +37,22 @@ exports.CategoriesList = async (req, res) => {
   res.status(200).json(result);
 };
 
-// BrandDropDown
+// Categories Drop Down
 exports.CategoriesDropDown = async (req, res) => {
   let result = await DropDownService(req, CategoriesModel, { _id: 1, Name: 1 });
   res.status(200).json(result);
+};
+
+// Delete Categories
+exports.DeleteCategories = async (req, res) => {
+  let DeleteId = req.params.id;
+  let {ObjectId} = mongoose.Types;
+  let CheckAssociate = await CheckAssociateService({CategoryID:ObjectId(DeleteId)},ProductModel);
+
+  if (CheckAssociate) {
+    res.status(200).json({status: "associate", data: "Associate with Product"});
+  } else {
+    let result = await DeleteService(req,CategoriesModel)
+    res.status(200).json(result);
+  }
 };
