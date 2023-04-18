@@ -9,8 +9,9 @@ const ParentModel = require("../../models/Return/ReturnsModel");
 const ChildeModel = require("../../models/Return/ReturnProductsModel");
 const ParentChildeService = require("../../services/common/createParentChildsService");
 const ListOneJoinService = require("../../services/common/listOneJoinService");
+const DeleteParentChildeService = require("../../services/common/deleteParentChildsService");
 
-// Create Purchases
+// Create Return
 exports.CreateReturn = async (req, res) => {
   let Result = await ParentChildeService(
     req,
@@ -21,7 +22,7 @@ exports.CreateReturn = async (req, res) => {
   res.status(200).json(Result);
 };
 
-// Purchases List
+// Return List
 exports.ReturnList = async (req, res) => {
   let SearchRgx = { $regex: req.params.searchKeyword, $options: "i" };
   let SearchArray = [
@@ -46,4 +47,15 @@ exports.ReturnList = async (req, res) => {
     JoinStage
   );
   res.status(200).json(result);
+};
+
+// Delete Return
+exports.DeleteReturn = async (req, res) => {
+  let Result = await DeleteParentChildeService(
+    req,
+    ParentModel,
+    ChildeModel,
+    "ReturnID"
+  );
+  res.status(200).json(Result);
 };
