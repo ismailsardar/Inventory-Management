@@ -9,6 +9,7 @@ const ParentModel = require("../../models/Purchases/PurchasesModel");
 const ChildeModel = require("../../models/Purchases/PurchaseProductsModel");
 const ParentChildeService = require("../../services/common/createParentChildsService");
 const ListOneJoinService = require("../../services/common/listOneJoinService");
+const DeleteParentChildeService = require("../../services/common/deleteParentChildsService");
 
 // Create Purchases
 exports.CreatePurchases = async (req, res) => {
@@ -46,4 +47,15 @@ exports.PurchasesList = async (req, res) => {
     JoinStage
   );
   res.status(200).json(result);
+};
+
+// Delete Purchases
+exports.DeletePurchases = async (req, res) => {
+  let Result = await DeleteParentChildeService(
+    req,
+    ParentModel,
+    ChildeModel,
+    "PurchaseID"
+  );
+  res.status(200).json(Result);
 };
