@@ -9,6 +9,7 @@ const ExpenseModel = require("../../models/Expense/ExpensesModel");
 
 // common services import
 const CreateService = require("../../services/common/createService");
+const DeleteService = require("../../services/common/deleteService");
 const ListOneJoinService = require("../../services/common/listOneJoinService");
 const UpdateService = require("../../services/common/updateService");
 
@@ -34,5 +35,11 @@ exports.ExpenseList = async (req, res) => {
   ];
   let JoinStage = {$lookup: {from: "expensetypes", localField: "TypeID", foreignField: "_id", as: "Type"}}
   let result = await ListOneJoinService(req, ExpenseModel, SearchArray,JoinStage);
+  res.status(200).json(result);
+};
+
+// Delete Expense
+exports.DeleteExpense = async (req, res) => {
+  let result = await DeleteService(req, ExpenseModel);
   res.status(200).json(result);
 };
