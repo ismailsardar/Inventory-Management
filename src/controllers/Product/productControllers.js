@@ -17,11 +17,18 @@ const CheckAssociateService = require("../../services/common/checkAssociateServi
 const SaleProductsModel = require("../../models/Sales/SalesProductsModel");
 const ReturnProductsModel = require("../../models/Return/ReturnProductsModel");
 const PurchaseProductsModel = require("../../models/Purchases/PurchaseProductsModel");
+const DetailsByIDService = require("../../services/common/DetailsByIdService");
 
 // Create Product
 exports.CreateProduct = async (req, res) => {
   let result = await CreateService(req, ProductModel);
   res.status(201).json(result);
+};
+
+// Product Details
+exports.ProductDetails = async (req, res) => {
+  let result = await DetailsByIDService(req,ProductModel);
+  res.status(200).json(result);
 };
 
 // Update Product
