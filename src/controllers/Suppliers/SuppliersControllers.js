@@ -16,11 +16,18 @@ const UpdateService = require("../../services/common/updateService");
 const DeleteService = require("../../services/common/deleteService");
 const CheckAssociateService = require("../../services/common/checkAssociateService");
 const PurchaseModel = require("../../models/Purchases/PurchasesModel");
+const DetailsByIDService = require("../../services/common/DetailsByIdService");
 
 // Create Suppliers
 exports.CreateSuppliers = async (req, res) => {
   let result = await CreateService(req, SuppliersModel);
   res.status(201).json(result);
+};
+
+// Categories Details
+exports.SuppliersDetails = async (req, res) => {
+  let result = await DetailsByIDService(req,SuppliersModel);
+  res.status(200).json(result);
 };
 
 // Update Suppliers
