@@ -6,6 +6,7 @@
 
 //data base import
 const ExpenseModel = require("../../models/Expense/ExpensesModel");
+const DetailsByIDService = require("../../services/common/DetailsByIdService");
 
 // common services import
 const CreateService = require("../../services/common/createService");
@@ -13,10 +14,16 @@ const DeleteService = require("../../services/common/deleteService");
 const ListOneJoinService = require("../../services/common/listOneJoinService");
 const UpdateService = require("../../services/common/updateService");
 
-// CreateExpense
+// Create Expense
 exports.CreateExpense = async (req, res) => {
   let result = await CreateService(req, ExpenseModel);
   res.status(201).json(result);
+};
+
+// Expense Details
+exports.ExpenseDetails = async (req, res) => {
+  let result = await DetailsByIDService(req,ExpenseModel);
+  res.status(200).json(result);
 };
 
 // UpdateExpense
