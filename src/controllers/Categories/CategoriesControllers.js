@@ -16,11 +16,18 @@ const ListService = require("../../services/common/listService");
 const UpdateService = require("../../services/common/updateService");
 const DeleteService = require("../../services/common/deleteService");
 const CheckAssociateService = require("../../services/common/checkAssociateService");
+const DetailsByIDService = require("../../services/common/DetailsByIdService");
 
 // Create Categories
 exports.CreateCategories = async (req, res) => {
   let result = await CreateService(req, CategoriesModel);
   res.status(201).json(result);
+};
+
+// Categories Details
+exports.CategoriesDetails = async (req, res) => {
+  let result = await DetailsByIDService(req,CategoriesModel);
+  res.status(200).json(result);
 };
 
 // Update Categories
