@@ -4,9 +4,9 @@
  * Auth: Ismile Sardar
 */
 
-const UserCreateService = async (request, dataModel) => {
+const UserCreateService = async (req, dataModel) => {
   try {
-    let postBody = request.body;
+    let postBody = req.body;
     let data = await dataModel.create(postBody);
 
     if (data) {
