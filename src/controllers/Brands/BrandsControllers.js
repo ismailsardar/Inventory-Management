@@ -5,7 +5,7 @@
  */
 
 //data base import
-const { default: mongoose } = require("mongoose");
+const mongoose  = require("mongoose");
 const BrandModel = require("../../models/Brand/BrandsModel");
 const CheckAssociateService = require("../../services/common/checkAssociateService");
 
