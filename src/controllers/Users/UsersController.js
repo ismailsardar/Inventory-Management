@@ -9,6 +9,7 @@ const OtpModel = require("../../models/Users/OTPSModel");
 const UserModel = require("../../models/Users/UsersModel");
 
 // Service module
+// const UserCreateService = require("../../services/user/UserCreateService");
 const UserCreateService = require("../../services/user/UserCreateService");
 const UserDetailsService = require("../../services/user/UserDetailsService");
 const UserLoginService = require("../../services/user/UserLoginService");
