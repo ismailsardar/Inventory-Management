@@ -7,7 +7,7 @@
 const UserDetailsService = async (request, dataModel) => {
   try {
     let data = await dataModel.aggregate([
-      { $match: { email: request.headers["email"] } },
+      { $match: { UserEmail: request.headers["email"] } },
     ]);
 
     if (data) {
