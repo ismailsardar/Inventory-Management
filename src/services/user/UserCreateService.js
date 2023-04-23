@@ -13,7 +13,7 @@ const UserCreateService = async (req, dataModel) => {
       return { status: "success", data: data };
     }
   } catch (error) {
-    return { status: "fail", error: error.message };
+    return { status: "fail", error: error };
   }
 };
 
