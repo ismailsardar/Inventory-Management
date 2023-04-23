@@ -16,7 +16,7 @@ const UpdateService = require("../../services/common/updateService");
 const DeleteService = require("../../services/common/deleteService");
 const CheckAssociateService = require("../../services/common/checkAssociateService");
 const PurchaseModel = require("../../models/Purchases/PurchasesModel");
-const DetailsByIDService = require("../../services/common/DetailsByIdService");
+const DetailsByIDService = require("../../services/common/detailsByIdService");
 
 // Create Suppliers
 exports.CreateSuppliers = async (req, res) => {

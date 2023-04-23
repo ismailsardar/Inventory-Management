@@ -16,7 +16,7 @@ const ListService = require("../../services/common/listService");
 const UpdateService = require("../../services/common/updateService");
 const ProductModel = require("../../models/Products/ProductModule");
 const DeleteService = require("../../services/common/deleteService");
-const DetailsByIDService = require("../../services/common/DetailsByIdService");
+const DetailsByIDService = require("../../services/common/detailsByIdService");
 
 // CreateBrand
 exports.CreateBrand = async (req, res) => {

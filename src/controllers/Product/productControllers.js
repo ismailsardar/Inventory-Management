@@ -17,7 +17,7 @@ const CheckAssociateService = require("../../services/common/checkAssociateServi
 const SaleProductsModel = require("../../models/Sales/SalesProductsModel");
 const ReturnProductsModel = require("../../models/Return/ReturnProductsModel");
 const PurchaseProductsModel = require("../../models/Purchases/PurchaseProductsModel");
-const DetailsByIDService = require("../../services/common/DetailsByIdService");
+const DetailsByIDService = require("../../services/common/detailsByIdService");
 
 // Create Product
 exports.CreateProduct = async (req, res) => {

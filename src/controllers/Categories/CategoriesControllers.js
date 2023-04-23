@@ -16,7 +16,7 @@ const ListService = require("../../services/common/listService");
 const UpdateService = require("../../services/common/updateService");
 const DeleteService = require("../../services/common/deleteService");
 const CheckAssociateService = require("../../services/common/checkAssociateService");
-const DetailsByIDService = require("../../services/common/DetailsByIdService");
+const DetailsByIDService = require("../../services/common/detailsByIdService");
 
 // Create Categories
 exports.CreateCategories = async (req, res) => {

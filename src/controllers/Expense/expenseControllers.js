@@ -6,7 +6,7 @@
 
 //data base import
 const ExpenseModel = require("../../models/Expense/ExpensesModel");
-const DetailsByIDService = require("../../services/common/DetailsByIdService");
+const DetailsByIDService = require("../../services/common/detailsByIdService");
 
 // common services import
 const CreateService = require("../../services/common/createService");
