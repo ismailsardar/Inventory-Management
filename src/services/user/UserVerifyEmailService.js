@@ -18,7 +18,7 @@ const UserVerifyEmailService = async (request, dataModel) => {
     let otpCode = Math.floor(100000 + Math.random() * 900000);
 
     let userCount = await dataModel.aggregate([
-      { $match: { email } },
+      { $match: {UserEmail: email } },
       { $count: "total" },
     ]);
 
