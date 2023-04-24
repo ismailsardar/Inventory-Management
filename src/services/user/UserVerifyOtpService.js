@@ -20,7 +20,7 @@ const UserVerifyOtpService = async (request, dataModel) => {
     if (otpCount.length > 0) {
       //otp update
       let OTPUpdate = await dataModel.updateOne(
-        { email, otp: otpCode, status },
+        { UserEmail:email, otp: otpCode, status },
         { status: statusUpdate }
       );
 

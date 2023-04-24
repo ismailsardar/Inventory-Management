@@ -27,7 +27,7 @@ const UserVerifyEmailService = async (request, dataModel) => {
     }
 
     //otp create
-    await OtpModel.create({ email, otp: otpCode });
+    await OtpModel.create({ UserEmail:email, otp: otpCode });
 
     //send email
     // let sendEmail = await SendEmail(
