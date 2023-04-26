@@ -106,7 +106,7 @@ exports.DeleteProduct = async (req, res) => {
       .status(200)
       .json({ status: "associate", data: "Associate with Product" });
   } else {
-    let result = await DeleteService(req, CustomersModel);
+    let result = await DeleteService(req, ProductModel);
     res.status(200).json(result);
   }
 };
