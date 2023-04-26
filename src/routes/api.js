@@ -120,10 +120,10 @@ router.get("/returnList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,Re
 router.get("/deleteReturn/:id",AuthVerifyMiddleware,ReturnController.DeleteReturn);
 
 // Report
-router.get("/expensesByDate",AuthVerifyMiddleware,ReportController.ExpensesByDate);
-router.get("/returnByDate",AuthVerifyMiddleware,ReportController.ReturnByDate);
-router.get("/purchaseByDate",AuthVerifyMiddleware,ReportController.PurchaseByDate);
-router.get("/salesByDate",AuthVerifyMiddleware,ReportController.SalesByDate);
+router.post("/expensesByDate",AuthVerifyMiddleware,ReportController.ExpensesByDate);
+router.post("/returnByDate",AuthVerifyMiddleware,ReportController.ReturnByDate);
+router.post("/purchaseByDate",AuthVerifyMiddleware,ReportController.PurchaseByDate);
+router.post("/salesByDate",AuthVerifyMiddleware,ReportController.SalesByDate);
 
 // Summary
 router.get("/expensesSummary",AuthVerifyMiddleware,SummaryController.ExpensesSummary);
