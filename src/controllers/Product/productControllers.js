@@ -18,6 +18,7 @@ const SaleProductsModel = require("../../models/Sales/SalesProductsModel");
 const ReturnProductsModel = require("../../models/Return/ReturnProductsModel");
 const PurchaseProductsModel = require("../../models/Purchases/PurchaseProductsModel");
 const DetailsByIDService = require("../../services/common/detailsByIdService");
+const DropDownService = require("../../services/common/dropDownService");
 
 // Create Product
 exports.CreateProduct = async (req, res) => {
@@ -110,3 +111,9 @@ exports.DeleteProduct = async (req, res) => {
     res.status(200).json(result);
   }
 };
+
+// ProductsDropDown
+exports.ProductsDropDown = async (req, res) => {
+  let Result= await DropDownService(req,ProductModel,{_id:1,Name:1});
+  res.status(200).json(Result);
+}
